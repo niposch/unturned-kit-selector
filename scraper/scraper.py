@@ -39,7 +39,7 @@ def download_item(item_url:str) -> Item | None:
         rarity = dom.xpath("/html/body/div[2]/div/div[4]/div/div[3]/table/tbody/tr[4]/td[2]/a/span")[0].text
         horizontal_slots = int(dom.xpath("/html/body/div[2]/div/div[4]/div/div[3]/table/tbody/tr[5]/td[2]")[0].text)
         vertical_slots = int(dom.xpath("/html/body/div[2]/div/div[4]/div/div[3]/table/tbody/tr[6]/td[2]")[0].text)
-        name = dom.xpath("/html/body/div[2]/div/div[1]/ol/li[3]")[0].text
+        name = dom.xpath("/html/body/div[2]/div/div[1]/ol/li[last()]")[0].text
         description = dom.xpath("/html/body/div[2]/div/div[4]/div/div[3]/p")[0].text
         image_url = dom.xpath("/html/body/div[2]/div/div[4]/div/div[2]/img")[0].attrib["src"]
         item = Item(horizontal_slots, vertical_slots, item_id, weight, type, rarity, name, description, image_url)

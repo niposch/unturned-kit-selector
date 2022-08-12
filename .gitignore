@@ -1,0 +1,5 @@
+/scraper/images/
+/scraper/items.p
+/scraper/items.json
+/scraper/.env
+/scraper/__pycache__/

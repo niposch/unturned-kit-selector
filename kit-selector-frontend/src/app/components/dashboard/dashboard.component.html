@@ -1,0 +1,6 @@
+<div class="mat-app-background" style="display: flex; flex-direction: column; height: 100%">
+  <div style="flex: 0 0">
+    <app-search-input (search)="this.selectorObservable = $event"></app-search-input>
+  </div>
+  <app-item-list [searchSelectorObservable]="this.selectorObservable" style="flex: 1 1 " [items]="items"></app-item-list>
+</div>

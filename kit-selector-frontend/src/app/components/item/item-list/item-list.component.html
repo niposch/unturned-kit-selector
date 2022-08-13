@@ -10,7 +10,7 @@
     </ng-container>
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Name</mat-header-cell>
-      <mat-cell *matCellDef="let element" [class]="rarityService.getFontColorClass(element.rarity)">
+      <mat-cell (click)="openItemDetails(element.item_id)" style="cursor:pointer;" *matCellDef="let element" [class]="rarityService.getFontColorClass(element.rarity)">
         <div class="cell-container">
           <span>{{element.name}}</span>
         </div>

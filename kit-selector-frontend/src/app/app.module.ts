@@ -17,29 +17,35 @@ import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
 import {FormsModule} from "@angular/forms";
+import { ItemDetailsComponent } from './components/item/item-details/item-details.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemListComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    ItemDetailsComponent,
+    DashboardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatTableModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    ScrollingModule,
-    TableVirtualScrollModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatIconModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatTableModule,
+        MatButtonModule,
+        MatSnackBarModule,
+        ScrollingModule,
+        TableVirtualScrollModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatSelectModule,
+        MatIconModule,
+        FormsModule,
+        MatProgressBarModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

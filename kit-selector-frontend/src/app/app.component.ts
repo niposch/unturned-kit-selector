@@ -9,17 +9,6 @@ import {SearchSelector} from "./models/SearchSelector";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'kit-selector-frontend';
-  items: Array<Item>|undefined;
-  selectorObservable: Observable<SearchSelector>;
-
-  constructor(private readonly itemService:ItemService) {
-  }
-  ngOnInit(): void {
-    this.itemService.getItems().subscribe(items => {
-      this.items = items;
-    });
-  }
-
 }

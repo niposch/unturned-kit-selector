@@ -6,6 +6,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {TableVirtualScrollDataSource} from "ng-table-virtual-scroll";
 import {SearchSelector} from "../../../models/SearchSelector";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-item-list',
@@ -26,7 +27,7 @@ export class ItemListComponent implements OnChanges, OnInit{
   displayedColumns = ["item-id", "image", "name", "item-type"];
   isLoading = true;
 
-  constructor(readonly rarityService: RarityColorServiceService, private readonly snackBar:MatSnackBar) { }
+  constructor(readonly rarityService: RarityColorServiceService, private readonly snackBar:MatSnackBar, private readonly router:Router) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['items'].currentValue) {
@@ -80,5 +81,9 @@ export class ItemListComponent implements OnChanges, OnInit{
 
   ngOnInit(): void {
     this.updateOperationsDisplay(this.displayOperations);
+  }
+
+  openItemDetails(item_id:number){
+    this.router.navigate(["/details"], {queryParams: {"item-id": item_id}})
   }
 }

@@ -1,0 +1,25 @@
+<div style="height: 100%; width: 100%" class="mat-app-background">
+  <div *ngIf="item === undefined then itemLoading else elseBlock">
+
+  </div>
+  <ng-template #elseBlock>
+    <div *ngIf="item === null then itemNotFound else itemFound"></div>
+    <img [src]="'assets/item-imgs/' + this.item!.item_id + '.png'">
+
+    <ng-template #itemFound>
+      <div>
+        <h2>{{item!.name}}</h2>
+        <p>{{item!.description}}</p>
+      </div>
+
+    </ng-template>
+    <ng-template #itemNotFound>
+      <div>
+        <h2>Item not found</h2>
+      </div>
+    </ng-template>
+  </ng-template>
+  <ng-template #itemLoading>
+    <mat-progress-bar></mat-progress-bar>
+  </ng-template>
+</div>

@@ -1,0 +1,25 @@
+@import "../../../css/rarity";
+.mat-column-item-id {
+  flex: 0 0 48px;
+  border-right: 1px solid currentColor;
+}
+
+.mat-column-image{
+  flex: 0 0 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: center;
+}
+
+.mat-cell > .cell-container {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type {
+  padding-left: 10px;
+}
+
+.mat-header-cell{
+  justify-content: left;
+}

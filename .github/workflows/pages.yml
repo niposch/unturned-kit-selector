@@ -30,7 +30,7 @@ jobs:
         run: |
           cd kit-selector-frontend
           npm i
-          ng build --base-href="/unturned-kit-selector/"
+          npm run build -- --base-href="/unturned-kit-selector/"
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:

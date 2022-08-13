@@ -1,0 +1,19 @@
+<div>
+  <form >
+    <mat-form-field>
+      <input name="searchString" (ngModelChange)="onSearchStringChange($event)" matInput placeholder="Search" [(ngModel)]="searchString"/>
+    </mat-form-field>
+    <mat-form-field >
+      <mat-select name="rarities" (ngModelChange)="onRaritiesChange($event)" multiple placeholder="rarity" [(ngModel)]="selectedRarities">
+        <div *ngIf="allRarities != null">
+          <mat-option  *ngFor="let rarity of this.allRarities" [value]="rarity">{{rarity}}</mat-option>
+        </div>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select name="types" (ngModelChange)="onTypesChange($event)" multiple placeholder="type" [(ngModel)]="selectedTypes">
+        <mat-option *ngFor="let type of this.allTypes" [value]="type">{{type}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>

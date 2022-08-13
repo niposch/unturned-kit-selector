@@ -4,6 +4,8 @@ import {DataSource} from "@angular/cdk/collections";
 import {RarityColorServiceService} from "../../../services/rarity-color-service.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {TableVirtualScrollDataSource} from "ng-table-virtual-scroll";
+import {SearchSelector} from "../../../models/SearchSelector";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-item-list',
@@ -16,6 +18,9 @@ export class ItemListComponent implements OnChanges, OnInit{
 
   @Input()
   public displayOperations = true;
+
+  @Input()
+  public searchSelectorObservable: Observable<SearchSelector>|undefined;
 
   public dataSource = new TableVirtualScrollDataSource<Item>();
   displayedColumns = ["item-id", "image", "name", "item-type"];
@@ -34,6 +39,21 @@ export class ItemListComponent implements OnChanges, OnInit{
       this.isLoading = true;
     }
     this.updateOperationsDisplay(changes["displayOperations"]?.currentValue ?? this.displayOperations);
+    this.handleSearchSelectorChange(changes);
+  }
+
+  private handleSearchSelectorChange(changes:SimpleChanges){
+    if(changes["searchSelectorObservable"] != null){
+      this.searchSelectorObservable = changes["searchSelectorObservable"].currentValue;
+      this.subscribeToSearchObservable()
+    }
+  }
+  subscribeToSearchObservable(){
+    this.searchSelectorObservable?.subscribe(searchSelector => {
+      if(this.items == null)
+        return
+      this.dataSource.data = searchSelector.search(this.items)
+    })
   }
 
   private updateOperationsDisplay(newState:boolean){

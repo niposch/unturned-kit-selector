@@ -58,8 +58,10 @@ export class ItemListComponent implements OnChanges, OnInit{
   }
 
   private updateOperationsDisplay(newState:boolean){
-    if(newState == true && this.displayedColumns.indexOf("operations") == -1){
-      this.displayedColumns.push("operations");
+
+    if(newState == true ){
+      if(this.displayedColumns.indexOf("operations") == -1)
+        this.displayedColumns.push("operations");
     }
     else{
       var opsIndex = this.displayedColumns.indexOf("operations");

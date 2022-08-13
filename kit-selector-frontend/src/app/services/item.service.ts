@@ -22,7 +22,7 @@ export class ItemService {
     if(this.runningRequest) {
       return this.runningRequest;
     }
-    var obs = this.http.get<Item[]>("/assets/items.json");
+    var obs = this.http.get<Item[]>("assets/items.json");
     this.runningRequest = obs;
     obs.subscribe(items => {
       this.cache = items;

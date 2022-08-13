@@ -34,7 +34,6 @@ jobs:
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: kit-selector-frontend/dist
-          target-folder: docs
+          folder: kit-selector-frontend/dist/kit-selector-frontend
           branch: gh-pages
       

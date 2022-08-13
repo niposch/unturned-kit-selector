@@ -21,7 +21,16 @@
   </ng-container>
   <ng-container matColumnDef="item-id">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.item_id}} </mat-cell>
+    <mat-cell (click)="copyToClipboard(element.item_id)" *matCellDef="let element"> <div>{{element.item_id}}</div> </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="operations">
+    <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div>
+        <button class="operation-button" mat-stroked-button  color="accent" (click)="copyToClipboard(element.item_id)">Copy Id</button>
+        <button class="operation-button" mat-stroked-button color="accent" (click)="copyToClipboard('/give ' + element.item_id)">Copy Command</button>
+      </div>
+    </mat-cell>
   </ng-container>
   <ng-container matColumnDef="item-type">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Type</mat-header-cell>

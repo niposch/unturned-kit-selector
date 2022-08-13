@@ -2,6 +2,7 @@
 .mat-column-item-id {
   flex: 0 0 48px;
   border-right: 1px solid currentColor;
+  cursor: pointer;
 }
 
 .mat-column-image{
@@ -22,4 +23,11 @@ mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-
 
 .mat-header-cell{
   justify-content: left;
+}
+
+.operation-button{
+  display: none;
+}
+.mat-row:hover .operation-button{
+  display: inline;
 }

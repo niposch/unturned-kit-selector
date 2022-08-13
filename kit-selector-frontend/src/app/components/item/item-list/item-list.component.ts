@@ -3,6 +3,7 @@ import {Item} from "../../../models/Item";
 import {DataSource} from "@angular/cdk/collections";
 import {RarityColorServiceService} from "../../../services/rarity-color-service.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {TableVirtualScrollDataSource} from "ng-table-virtual-scroll";
 
 @Component({
   selector: 'app-item-list',
@@ -16,7 +17,7 @@ export class ItemListComponent implements OnChanges, OnInit{
   @Input()
   public displayOperations = true;
 
-  public dataSource: Array<Item> = [];
+  public dataSource = new TableVirtualScrollDataSource<Item>();
   displayedColumns = ["item-id", "image", "name", "item-type"];
   isLoading = true;
 
@@ -24,12 +25,12 @@ export class ItemListComponent implements OnChanges, OnInit{
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['items'].currentValue) {
-      this.dataSource = changes['items'].currentValue;
+      this.dataSource.data = changes['items'].currentValue;
       console.log(this.dataSource);
       this.isLoading = false;
     }
     else{
-      this.dataSource = [];
+      this.dataSource.data = [];
       this.isLoading = true;
     }
     this.updateOperationsDisplay(changes["displayOperations"]?.currentValue ?? this.displayOperations);

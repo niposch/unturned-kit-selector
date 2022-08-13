@@ -31,3 +31,14 @@ mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-
 .mat-row:hover .operation-button{
   display: inline;
 }
+
+
+// used by angular virtual scroll for angular material table
+.wrapper {
+  height: 100%;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}

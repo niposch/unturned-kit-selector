@@ -9,6 +9,8 @@ import { ItemListComponent } from './components/item/item-list/item-list.compone
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {TableVirtualScrollModule} from "ng-table-virtual-scroll";
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     HttpClientModule,
     MatTableModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ScrollingModule,
+    TableVirtualScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

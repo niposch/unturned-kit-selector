@@ -1,0 +1,21 @@
+.item-image{
+  display: block;
+  max-width:230px;
+  max-height:95px;
+  width: auto;
+  height: auto;
+
+}
+
+mat-card-header{
+  width: 100%;
+}
+
+mat-card-header div{
+  width: 100%!important;
+}
+
+mat-card-actions > * {
+  margin-left: 0;
+  margin-right: 0;
+}

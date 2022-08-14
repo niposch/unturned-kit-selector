@@ -1,17 +1,75 @@
 <div style="height: 100%; width: 100%" class="mat-app-background">
+  <mat-toolbar>
+    <a style="display: flex; align-items: center" routerLink="/">
+      Home
+    </a>
+  </mat-toolbar>
   <div *ngIf="item === undefined then itemLoading else elseBlock">
 
   </div>
   <ng-template #elseBlock>
     <div *ngIf="item === null then itemNotFound else itemFound"></div>
-    <img [src]="'assets/item-imgs/' + this.item!.item_id + '.png'">
-
     <ng-template #itemFound>
-      <div>
-        <h2>{{item!.name}}</h2>
-        <p>{{item!.description}}</p>
-      </div>
+      <div style="display: flex; justify-content: center">
+        <mat-card style="max-width: 400px; margin-top: 25px; margin-left: 25px; margin-right: 25px"
+                  class="example-card">
+          <mat-card-header style="width: 100%">
+            <mat-card-title style="display: flex">
+              <span>{{item!.name}}</span>
+              <span style="margin-left: auto;cursor:pointer;" (click)="this.clipboardService.copyToClipboard(item!.item_id.toString())">#{{item!.item_id}}</span>
+            </mat-card-title>
+            <mat-card-subtitle>{{item!.type}}</mat-card-subtitle>
+          </mat-card-header>
+          <div style="display: flex; justify-content: center">
+            <img class="item-image" mat-card-image [src]="'assets/item-imgs/' + this.item!.item_id + '.png'"
+                 alt="Photo of the Item"
+                 style="max-height: 300px">
+          </div>
+          <mat-card-content style="display: flex; flex-direction: column">
+            <p>{{item!.description}}</p>
+            <mat-divider></mat-divider>
+            <table style="flex: 1 0">
+              <tr>
+                <td style="border-right: solid 1px">Rarity</td>
+                <td style="padding-left: 5px">{{item!.rarity}}</td>
+              </tr>
+              <tr>
+                <td style="border-right: solid 1px">Type</td>
+                <td style="padding-left: 5px">{{item!.type}}</td>
+              </tr>
+              <tr>
+                <td style="border-right: solid 1px">Weight</td>
+                <td style="padding-left: 5px">{{item!.weight}}</td>
+              </tr>
+              <tr>
+                <td style="border-right: solid 1px">Horizontal Slots</td>
+                <td style="padding-left: 5px">{{item!.horizontal_slots}}</td>
+              </tr>
+              <tr>
+                <td style="border-right: solid 1px">Vertical Slots</td>
+                <td style="padding-left: 5px">{{item!.vertical_slots}}</td>
+              </tr>
+              <tr *ngIf="item!.additional_storage_horizontal != null">
+                <td style="border-right: solid 1px">Storage Capacity Horizontal</td>
+                <td style="padding-left: 5px">{{item!.additional_storage_horizontal}}</td>
+              </tr>
+              <tr *ngIf="item!.additional_storage_horizontal != null">
+                <td style="border-right: solid 1px">Storage Capacity Vertical</td>
+                <td style="padding-left: 5px">{{item!.additional_storage_vertical}}</td>
+              </tr>
+            </table>
 
+            <mat-divider></mat-divider>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="this.clipboardService.copyToClipboard(item!.item_id.toString())">Copy ID
+            </button>
+            <button mat-button (click)="this.clipboardService.copyToClipboard(item!.item_id.toString())">Copy Give
+              Command
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
     </ng-template>
     <ng-template #itemNotFound>
       <div>

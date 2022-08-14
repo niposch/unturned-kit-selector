@@ -1,0 +1,12 @@
+@import "../../../css/rarity";
+
+.search-field{
+  padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .break {
+    flex-basis: 100%;
+    height: 0;
+  }
+}

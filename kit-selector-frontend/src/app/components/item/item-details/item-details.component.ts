@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Route} from "@angular/router";
 import {Item} from "../../../models/Item";
 import {ItemService} from "../../../services/item.service";
+import {ClipboardService} from "../../../clipboard.service";
 
 @Component({
   selector: 'app-item-details',
@@ -12,7 +13,7 @@ export class ItemDetailsComponent implements OnInit {
 
   itemId: number|null|undefined = undefined;
   item: Item|null|undefined = undefined;
-  constructor(private readonly route:ActivatedRoute, private readonly itemService:ItemService) { }
+  constructor(private readonly route:ActivatedRoute, private readonly itemService:ItemService, readonly clipboardService:ClipboardService) { }
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(paramMap =>{

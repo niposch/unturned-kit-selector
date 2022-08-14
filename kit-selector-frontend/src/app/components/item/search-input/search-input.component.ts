@@ -5,6 +5,7 @@ import {SearchSelector} from "../../../models/SearchSelector";
 import {Item} from "../../../models/Item";
 import {Observable, Subscriber} from "rxjs";
 import {search, Searcher} from "fast-fuzzy";
+import {RarityColorServiceService} from "../../../services/rarity-color-service.service";
 @Component({
   selector: 'app-search-input',
   templateUrl: './search-input.component.html',
@@ -24,7 +25,7 @@ export class SearchInputComponent implements OnInit {
 
   allRarities: Array<string> = [];
   allTypes: Array<string> = [];
-  constructor(private readonly rarityService: ItemRarityService, private readonly typeService:ItemTypeService) {
+  constructor(private readonly rarityService: ItemRarityService, private readonly typeService:ItemTypeService, readonly rarityColorService: RarityColorServiceService) {
   }
 
   ngOnInit(): void {

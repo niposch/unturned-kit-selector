@@ -20,6 +20,9 @@ import {FormsModule} from "@angular/forms";
 import { ItemDetailsComponent } from './components/item/item-details/item-details.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -29,23 +32,26 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ItemDetailsComponent,
     DashboardComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MatTableModule,
-        MatButtonModule,
-        MatSnackBarModule,
-        ScrollingModule,
-        TableVirtualScrollModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatSelectModule,
-        MatIconModule,
-        FormsModule,
-        MatProgressBarModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatTableModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    ScrollingModule,
+    TableVirtualScrollModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatIconModule,
+    FormsModule,
+    MatProgressBarModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatDividerModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -7,6 +7,7 @@ import {TableVirtualScrollDataSource} from "ng-table-virtual-scroll";
 import {SearchSelector} from "../../../models/SearchSelector";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+import {ClipboardService} from "../../../clipboard.service";
 
 @Component({
   selector: 'app-item-list',
@@ -27,7 +28,7 @@ export class ItemListComponent implements OnChanges, OnInit{
   displayedColumns = ["item-id", "image", "name", "item-type"];
   isLoading = true;
 
-  constructor(readonly rarityService: RarityColorServiceService, private readonly snackBar:MatSnackBar, private readonly router:Router) { }
+  constructor(readonly rarityService: RarityColorServiceService, private readonly snackBar:MatSnackBar, private readonly router:Router, readonly clipboardService: ClipboardService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['items'].currentValue) {
@@ -69,16 +70,6 @@ export class ItemListComponent implements OnChanges, OnInit{
         this.displayedColumns.splice(opsIndex, 1);
       }
     }
-  }
-
-  copyToClipboard(value: string) {
-    var dummy = document.createElement("textarea");
-    document.body.appendChild(dummy);
-    dummy.value = value;
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-    this.snackBar.open("Copied to clipboard", "", {duration: 2000});
   }
 
   ngOnInit(): void {

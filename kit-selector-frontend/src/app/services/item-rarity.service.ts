@@ -18,7 +18,7 @@ export class ItemRarityService {
 
   private async findAllRarities(): Promise<string[]> {
     var allItems = await this.itemService.getItems().toPromise();
-    var rarities = new Set<string>();
+    var rarities = new Set<string>(["Common", "Uncommon", "Rare", "Epic", "Legendary", "Mythical"]);
     if(allItems == undefined){
       console.log("allItems is undefined");
       return []

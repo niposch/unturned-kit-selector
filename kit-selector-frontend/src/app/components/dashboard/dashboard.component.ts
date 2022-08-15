@@ -11,7 +11,8 @@ import {ItemService} from "../../services/item.service";
 })
 export class DashboardComponent implements OnInit {
   items: Array<Item>|undefined;
-  selectorObservable: Observable<SearchSelector>;
+  selectorObservable: Observable<SearchSelector> | undefined = undefined;
+  showSearch = false;
 
   constructor(private readonly itemService:ItemService) {
   }

@@ -23,6 +23,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDividerModule} from "@angular/material/divider";
+import { NavItemsComponent } from './components/nav/nav-items/nav-items.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {MatDividerModule} from "@angular/material/divider";
     SearchInputComponent,
     ItemDetailsComponent,
     DashboardComponent,
+    NavItemsComponent,
   ],
   imports: [
     BrowserModule,

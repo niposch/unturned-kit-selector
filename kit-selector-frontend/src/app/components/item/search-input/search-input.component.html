@@ -1,7 +1,7 @@
 <div>
   <form style="display: flex; justify-content: center; flex-wrap: wrap">
     <mat-form-field class="search-field" style="flex: 2 0">
-      <input name="searchString" (ngModelChange)="onSearchStringChange($event)" matInput placeholder="Search" [(ngModel)]="searchString"/>
+      <input autocomplete="off" name="searchString" (ngModelChange)="onSearchStringChange($event)" matInput placeholder="Search" [(ngModel)]="searchString"/>
     </mat-form-field>
     <div class="break"></div>
     <mat-form-field class="search-field" style="flex: 1 0">

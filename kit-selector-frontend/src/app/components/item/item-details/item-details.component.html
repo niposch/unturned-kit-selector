@@ -1,8 +1,11 @@
 <div style="height: 100%; width: 100%" class="mat-app-background">
   <mat-toolbar>
-    <a style="display: flex; align-items: center" routerLink="/">
-      Home
-    </a>
+    <button mat-stroked-button color="accent" mat-button routerLink="/">
+      <a style="display: flex; align-items: center" >
+        Unturned Kit Configurator
+      </a>
+    </button>
+    <app-nav-items></app-nav-items>
   </mat-toolbar>
   <div *ngIf="item === undefined then itemLoading else elseBlock">
 

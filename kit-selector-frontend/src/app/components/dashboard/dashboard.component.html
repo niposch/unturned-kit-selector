@@ -1,6 +1,18 @@
 <div class="mat-app-background" style="display: flex; flex-direction: column; height: 100%">
   <div style="flex: 0 0">
-    <app-search-input (search)="this.selectorObservable = $event"></app-search-input>
+    <mat-toolbar>
+      <button mat-stroked-button color="accent" routerLink="/" >
+        <span>Unturned Kit Configurator</span>
+      </button>
+      <app-nav-items></app-nav-items>
+      <span style="margin-left: auto"></span>
+      <button (click)="this.showSearch = !this.showSearch" mat-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div [style.display]="this.showSearch ? 'block' : 'none'">
+      <app-search-input (search)="this.selectorObservable = $event"></app-search-input>
+    </div>
   </div>
   <app-item-list [searchSelectorObservable]="this.selectorObservable" style="flex: 1 1 " [items]="items"></app-item-list>
 </div>

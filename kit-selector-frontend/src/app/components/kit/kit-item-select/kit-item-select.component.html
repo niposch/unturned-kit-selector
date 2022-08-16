@@ -1,0 +1,13 @@
+<div style="width: 100%">
+  <mat-form-field class="example-form-field">
+    <mat-label>Item</mat-label>
+    <mat-select [ngModel]="this.item" (ngModelChange)="this.itemChange.emit($event)">
+      <mat-form-field style="width: 100%; margin: 10px;position:relative;">
+        <mat-label>Search</mat-label>
+        <input [autofocus]="true" placeholder="Search..." matInput type="text" (keyup)="onItemSearchKey($event.target)" class="example-input">
+      </mat-form-field>
+      <mat-option>None</mat-option>
+      <mat-option *ngFor="let it of filteredItems" [value]="it">{{it.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

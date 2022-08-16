@@ -1,0 +1,34 @@
+<mat-toolbar>
+  <app-nav-items></app-nav-items>
+</mat-toolbar>
+<table mat-table #table [dataSource]="this.kits" style="width: 100%" cdkDropList [cdkDropListData]="this.kits" (cdkDropListDropped)="this.onListDrop($event)">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="kit-name">
+    <th mat-header-cell *matHeaderCellDef>Kit Name</th>
+    <td mat-cell *matCellDef="let element"> <button (click)="this.clipboardService.copyToClipboard(element.Name)" mat-stroked-button>{{element.Name}}</button> </td>
+  </ng-container>
+  <ng-container matColumnDef="kit-items">
+    <th mat-header-cell *matHeaderCellDef>Items</th>
+    <td mat-cell *matCellDef="let element"></td>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <div style="width: 100%; height: 100%; display: flex">
+        <span style="margin-left: auto"></span>
+        <button [routerLink]="['../create-update', element.websiteKitId]" style="margin: 5px" mat-mini-fab><mat-icon>edit</mat-icon></button>
+        <button (click)="this.deleteKit(element)" style="margin: 5px" mat-mini-fab><mat-icon>delete</mat-icon></button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row cdkDrag [cdkDragData]="row" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div style="position:absolute; right: 0; bottom: 0; margin:25px ">
+  <button mat-fab [routerLink]="['../create-update', '00000000-0000-0000-0000-000000000000'] "><mat-icon>add</mat-icon></button>
+</div>

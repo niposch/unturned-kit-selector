@@ -24,6 +24,16 @@ import {MatCardModule} from "@angular/material/card";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDividerModule} from "@angular/material/divider";
 import { NavItemsComponent } from './components/nav/nav-items/nav-items.component';
+import { KitListComponent } from './components/kit/kit-list/kit-list.component';
+import { KitUpdateComponent } from './components/kit/kit-update/kit-update.component';
+import { KitImportComponent } from './components/kit/kit-import/kit-import.component';
+import { KitExportComponent } from './components/kit/kit-export/kit-export.component';
+import { KitListItemComponent } from './components/kit/kit-list-item/kit-list-item.component';
+import { KitDetailsComponent } from './components/kit/kit-details/kit-details.component';
+import {MatListModule} from "@angular/material/list";
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import { KitItemSelectComponent } from './components/kit/kit-item-select/kit-item-select.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -33,6 +43,13 @@ import { NavItemsComponent } from './components/nav/nav-items/nav-items.componen
     ItemDetailsComponent,
     DashboardComponent,
     NavItemsComponent,
+    KitListComponent,
+    KitUpdateComponent,
+    KitImportComponent,
+    KitExportComponent,
+    KitListItemComponent,
+    KitDetailsComponent,
+    KitItemSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +69,10 @@ import { NavItemsComponent } from './components/nav/nav-items/nav-items.componen
     MatProgressBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule,
+    DragDropModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

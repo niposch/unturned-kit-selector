@@ -29,6 +29,9 @@ import { KitUpdateComponent } from './components/kit/kit-update/kit-update.compo
 import { KitImportComponent } from './components/kit/kit-import/kit-import.component';
 import { KitExportComponent } from './components/kit/kit-export/kit-export.component';
 import { KitListItemComponent } from './components/kit/kit-list-item/kit-list-item.component';
+import { KitDetailsComponent } from './components/kit/kit-details/kit-details.component';
+import {MatListModule} from "@angular/material/list";
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 @NgModule({
   declarations: [
@@ -43,6 +46,7 @@ import { KitListItemComponent } from './components/kit/kit-list-item/kit-list-it
     KitImportComponent,
     KitExportComponent,
     KitListItemComponent,
+    KitDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +66,9 @@ import { KitListItemComponent } from './components/kit/kit-list-item/kit-list-it
     MatProgressBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatListModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

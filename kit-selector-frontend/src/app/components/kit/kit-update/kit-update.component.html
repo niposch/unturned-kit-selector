@@ -1,1 +1,30 @@
-<p>kit-update works!</p>
+<mat-toolbar>
+  <app-nav-items></app-nav-items>
+</mat-toolbar>
+<form *ngIf="kit != null">
+  <mat-form-field appearance="fill">
+    <mat-label>Kit Name</mat-label>
+    <input matInput name="kitName" [(ngModel)]="this.kit.Name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>XP</mat-label>
+    <input matInput name="kitXp" type="number" [(ngModel)]="this.kit.XP">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Cooldown</mat-label>
+    <input matInput name="kitCooldown" type="number" [(ngModel)]="this.kit.Cooldown">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Money</mat-label>
+    <input matInput name="kitMoney" type="number" [(ngModel)]="this.kit.Money">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Vehicle ID</mat-label>
+    <input matInput name="kitVehicle" type="number" [(ngModel)]="this.kit.Vehicle">
+  </mat-form-field>
+  <div>
+    <button mat-button (click)="this.saveKit()">
+      Save
+    </button>
+  </div>
+</form>

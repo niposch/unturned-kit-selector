@@ -1,7 +1,7 @@
 <mat-toolbar>
   <app-nav-items></app-nav-items>
 </mat-toolbar>
-<form *ngIf="kit != null">
+<form *ngIf="kit != null" autocomplete="off">
   <mat-form-field appearance="fill">
     <mat-label>Kit Name</mat-label>
     <input matInput name="kitName" [(ngModel)]="this.kit.Name">
@@ -22,6 +22,67 @@
     <mat-label>Vehicle ID</mat-label>
     <input matInput name="kitVehicle" type="number" [(ngModel)]="this.kit.Vehicle">
   </mat-form-field>
+  <table mat-table [dataSource]="kit.Items" #itemTable style="width: 100%">
+    <ng-container matColumnDef="icon">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div style="display: flex; justify-content: center; width: 100%">
+          <img [src]="'assets/item-imgs/' + element.item_id + '.png'" alt="image" height="40px">
+        </div>
+</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef>Amount</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <mat-form-field>
+          <mat-label>Amount</mat-label>
+          <input required="true" matInput name="amount + {{element.name}}" type="number" [(ngModel)]="element.amount">
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div style="display: flex; width: 100%">
+          <span style="margin-right: auto;"></span>
+          <button (click)="this.removeItem(element)" mat-mini-fab>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </mat-cell>
+    </ng-container>
+    <ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </ng-container>
+  </table>
+  <mat-divider style="margin: 10px"></mat-divider>
+  <form autocomplete="off" style="display: flex; align-items: baseline">
+    <app-kit-item-select [(item)]="this.currentlyAddingItem"></app-kit-item-select>
+    <div *ngIf="this.currentlyAddingItem != null then itemSelected else noItemSelected"></div>
+    <ng-template #itemSelected>
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input required type="number" matInput name="itemAmount" [(ngModel)]="currentlyAddingItem!.amount">
+      </mat-form-field>
+    </ng-template>
+    <ng-template #noItemSelected>
+      <mat-form-field>
+        <mat-label>Amount</mat-label>
+        <input matInput disabled>
+      </mat-form-field>
+    </ng-template>
+    <div>
+      <button mat-raised-button color="primary" (click)="addItem()">Add Item</button>
+    </div>
+  </form>
+  <div style="padding-top: 25px"></div>
+  <mat-divider></mat-divider>
+  <div style="padding-top: 25px"></div>
   <div>
     <button mat-raised-button color="accent" (click)="this.saveKit()">
       Save

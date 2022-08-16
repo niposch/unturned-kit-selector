@@ -1,4 +1,5 @@
-export class KitItem{
-  id: number
-  amount: number
+import {Item} from "../Item";
+
+export interface KitItem extends Item {
+  amount:number
 }

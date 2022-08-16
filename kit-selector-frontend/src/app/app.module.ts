@@ -32,6 +32,8 @@ import { KitListItemComponent } from './components/kit/kit-list-item/kit-list-it
 import { KitDetailsComponent } from './components/kit/kit-details/kit-details.component';
 import {MatListModule} from "@angular/material/list";
 import {DragDropModule} from "@angular/cdk/drag-drop";
+import { KitItemSelectComponent } from './components/kit/kit-item-select/kit-item-select.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     KitExportComponent,
     KitListItemComponent,
     KitDetailsComponent,
+    KitItemSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,8 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
     MatToolbarModule,
     MatDividerModule,
     MatListModule,
-    DragDropModule
+    DragDropModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,6 +29,8 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row cdkDrag [cdkDragData]="row" *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-<div style="position:absolute; right: 0; bottom: 0; margin:25px ">
-  <button mat-fab [routerLink]="['../create-update', '00000000-0000-0000-0000-000000000000'] "><mat-icon>add</mat-icon></button>
+<div style="position:absolute; right: 0; bottom: 0; margin:5px; display: flex; flex-direction: column">
+  <button style="margin: 10px" mat-fab [routerLink]="['../create-update', '00000000-0000-0000-0000-000000000000'] "><mat-icon>add</mat-icon></button>
+  <button style="margin: 10px" mat-fab routerLink="/kit/export"><mat-icon>file_download</mat-icon></button>
+  <button style="margin: 10px" mat-fab disabled routerLink="/kit/import"><mat-icon>file_upload</mat-icon></button>
 </div>

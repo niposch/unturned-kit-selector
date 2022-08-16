@@ -23,8 +23,11 @@
     <input matInput name="kitVehicle" type="number" [(ngModel)]="this.kit.Vehicle">
   </mat-form-field>
   <div>
-    <button mat-button (click)="this.saveKit()">
+    <button mat-raised-button color="accent" (click)="this.saveKit()">
       Save
+    </button>
+    <button mat-raised-button routerLink="../../list">
+      Cancel
     </button>
   </div>
 </form>

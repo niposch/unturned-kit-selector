@@ -23,7 +23,7 @@ export class KitUpdateComponent implements OnInit {
       if (kitId == null || kitId == Constants.EmptyGuid) {
         this.kit = {websiteKitId: Constants.EmptyGuid, Name: "", Items: [], Vehicle:0, Money:0, Cooldown:0, XP:0 };
       } else {
-        this.kit = this.kitService.getKit(kitId);
+        this.kit = JSON.parse(JSON.stringify(this.kitService.getKit(kitId)));
       }
     })
   }

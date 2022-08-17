@@ -34,6 +34,8 @@ import {MatListModule} from "@angular/material/list";
 import {DragDropModule} from "@angular/cdk/drag-drop";
 import { KitItemSelectComponent } from './components/kit/kit-item-select/kit-item-select.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,13 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatDividerModule,
     MatListModule,
     DragDropModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

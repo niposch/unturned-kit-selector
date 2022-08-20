@@ -80,7 +80,18 @@
       <button mat-raised-button color="primary" (click)="addItem()">Add Item</button>
     </div>
   </form>
+  <mat-divider></mat-divider>
   <div style="padding-top: 25px"></div>
+  <h1>Skills</h1>
+  <app-skill-list [skills]="this.currentlyAddingItem.skills"></app-skill-list>
+  <div *ngIf="this.currentlyAddingItem != null then itemSelected else noItemSelected"></div>
+  <ng-template #itemSelected>
+  </ng-template>
+  <ng-template #noItemSelected>
+  </ng-template>
+
+  <div style="padding-top: 25px"></div>
+
   <mat-divider></mat-divider>
   <div style="padding-top: 25px"></div>
   <div>

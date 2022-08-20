@@ -1,3 +1,5 @@
+import {Skill} from "./Skill";
+
 export interface Item {
   horizontal_slots: number;
   vertical_slots: number;
@@ -10,4 +12,5 @@ export interface Item {
   thumbnail_url: string;
   additional_storage_vertical: number;
   additional_storage_horizontal: number;
+  skills: Array<Skill>;
 }

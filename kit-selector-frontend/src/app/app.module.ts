@@ -36,6 +36,7 @@ import { KitItemSelectComponent } from './components/kit/kit-item-select/kit-ite
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SkillListComponent } from './components/kit/skill-list/skill-list.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { environment } from '../environments/environment';
     KitListItemComponent,
     KitDetailsComponent,
     KitItemSelectComponent,
+    SkillListComponent,
   ],
   imports: [
     BrowserModule,

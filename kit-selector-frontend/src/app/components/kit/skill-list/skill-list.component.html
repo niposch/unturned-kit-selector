@@ -1,1 +1,48 @@
-<p>skill-list works!</p>
+<div>
+  <table #skillTable mat-table [dataSource]="skills" style="width: 100%">
+    <ng-container matColumnDef="skillName">
+      <th mat-header-cell *matHeaderCellDef>Skill Name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="skillLevel">
+      <th mat-header-cell *matHeaderCellDef>Level</th>
+      <td mat-cell *matCellDef="let element">{{element.targetLevel}}</td>
+    </ng-container>
+    <ng-container matColumnDef="overridePlayerLevel">
+      <th mat-header-cell *matHeaderCellDef>Override Player Level</th>
+      <td mat-cell *matCellDef="let element"><mat-checkbox [name]="element.name  + 'overridePlayerLevel'" [class.mat-checkbox-disabled]="false" disabled [checked]="element.overridePlayerLevel" focus></mat-checkbox></td>
+    </ng-container>
+    <ng-container matColumnDef="skillActions">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="deleteSkill(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (dblclick)="selectSkillForEdit(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <form>
+    <mat-form-field>
+      <mat-label>Skill Name</mat-label>
+      <input name="newSkillName" [(ngModel)]="newSkill.name" matInput [matAutocomplete]="auto" [formControl]="newSkillNameFormControl">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let skill of filteredSkillList | async" [value]="skill">
+          {{skill}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Skill Level</mat-label>
+      <input matInput name="newSkillLevel" type="number" [(ngModel)]="newSkill.targetLevel">
+    </mat-form-field>
+    <mat-checkbox matInput type="boolean" name="overridePlayerLevel" [(ngModel)]="newSkill.overridePlayerLevel">Override Player Level</mat-checkbox>
+    <button mat-button color="accent" (click)="addSkill()">
+      <div *ngIf="this.editingSkillIndex == undefined then addingNewSkill else updatingExisting"></div>
+      <ng-template #addingNewSkill>Add Skill</ng-template>
+      <ng-template #updatingExisting>Update Skill</ng-template>
+    </button>
+    <button mat-button (click)="this.newSkill = this.generateNewSkill()">Clear</button>
+  </form>
+</div>

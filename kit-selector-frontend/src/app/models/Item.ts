@@ -12,5 +12,4 @@ export interface Item {
   thumbnail_url: string;
   additional_storage_vertical: number;
   additional_storage_horizontal: number;
-  skills: Array<Skill>;
 }

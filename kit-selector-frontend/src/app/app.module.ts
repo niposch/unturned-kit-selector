@@ -16,7 +16,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatIconModule} from "@angular/material/icon";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ItemDetailsComponent } from './components/item/item-details/item-details.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -37,6 +37,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SkillListComponent } from './components/kit/skill-list/skill-list.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -82,7 +83,9 @@ import { SkillListComponent } from './components/kit/skill-list/skill-list.compo
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

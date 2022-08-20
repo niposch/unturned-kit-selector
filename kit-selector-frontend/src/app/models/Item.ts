@@ -1,3 +1,5 @@
+import {Skill} from "./Skill";
+
 export interface Item {
   horizontal_slots: number;
   vertical_slots: number;

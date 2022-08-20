@@ -80,7 +80,12 @@
       <button mat-raised-button color="primary" (click)="addItem()">Add Item</button>
     </div>
   </form>
+  <mat-divider></mat-divider>
   <div style="padding-top: 25px"></div>
+  <h1>Skills</h1>
+  <app-skill-list [(skills)]="this.kit!.Skills"></app-skill-list>
+  <div style="padding-top: 25px"></div>
+
   <mat-divider></mat-divider>
   <div style="padding-top: 25px"></div>
   <div>

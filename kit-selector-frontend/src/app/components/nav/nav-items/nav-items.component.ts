@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Constants } from 'src/app/helper/Constants';
 
 @Component({
   selector: 'app-nav-items',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-items.component.scss']
 })
 export class NavItemsComponent implements OnInit {
+  Constants = Constants;
 
   constructor() { }
 

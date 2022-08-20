@@ -28,7 +28,7 @@ export class KitUpdateComponent implements OnInit {
     this.activatedRoute.url.subscribe(url => {
       let kitId = url[url.length - 1].path;
       if (kitId == null || kitId == Constants.EmptyGuid) {
-        this.kit = {websiteKitId: Constants.EmptyGuid, Name: "", Items: [], Vehicle:0, Money:0, Cooldown:0, XP:0 };
+        this.kit = {websiteKitId: Constants.EmptyGuid, Name: "", Items: [], Vehicle:0, Money:0, Cooldown:0, XP:0, Skills:[]};
       } else {
         this.kit = JSON.parse(JSON.stringify(this.kitService.getKit(kitId)));
       }

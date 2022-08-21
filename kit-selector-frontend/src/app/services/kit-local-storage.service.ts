@@ -16,8 +16,8 @@ export class KitLocalStorageService {
   private kitsCache: Array<Kit> | undefined = undefined;
   constructor() { }
 
-  loadAllKits(): Array<Kit> {
-    if(this.kitsCache != undefined){
+  loadAllKits(forceReload:boolean = false): Array<Kit> {
+    if(this.kitsCache != undefined && !forceReload){
       this.kitChange?.next(this.kitsCache)
       return this.kitsCache;
     }
@@ -40,8 +40,17 @@ export class KitLocalStorageService {
   }
 
   saveAllKits(kits: Array<Kit>): void {
-    localStorage.setItem("kits", JSON.stringify(kits));
-    this.loadAllKits();
+    let usedNames = new Set<string>();
+    let acceptedKits:Array<Kit> = []
+    for (const kit of kits) {
+      if(usedNames.has(kit.Name)){
+        continue;
+      }
+      usedNames.add(kit.Name);
+      acceptedKits.push(kit);
+    }
+    localStorage.setItem("kits", JSON.stringify(acceptedKits));
+    this.loadAllKits(true);
   }
 
   createKit(kit: Kit): void {
@@ -52,7 +61,7 @@ export class KitLocalStorageService {
     kit.websiteKitId = uuidv4();
     kits.push(kit);
     this.saveAllKits(kits);
-    this.loadAllKits();
+    this.loadAllKits(true);
   }
 
   updateKit(kit: Kit): void {
@@ -60,7 +69,7 @@ export class KitLocalStorageService {
     let index = kits.findIndex(k => k.websiteKitId == kit.websiteKitId);
     kits[index] = kit;
     this.saveAllKits(kits);
-    this.loadAllKits();
+    this.loadAllKits(true);
   }
 
   getKit(kitId:string):Kit|null {
@@ -73,6 +82,6 @@ export class KitLocalStorageService {
     let index = kits.findIndex(k => k.websiteKitId == kit.websiteKitId);
     kits.splice(index, 1);
     this.saveAllKits(kits);
-    this.loadAllKits();
+    this.loadAllKits(true);
   }
 }

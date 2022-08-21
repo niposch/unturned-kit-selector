@@ -1,1 +1,33 @@
-<p>kit-import works!</p>
+<div style="">
+  <mat-toolbar>
+    <app-nav-items></app-nav-items>
+  </mat-toolbar>
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>XML</mat-label>
+    <textarea #xmlInput matInput (input)="parseXml($event)"
+            cdkTextareaAutosize
+            #autosize="cdkTextareaAutosize"
+            cdkAutosizeMinRows="1">
+
+    </textarea>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <div>
+    <h1>Parsed Results:</h1>
+    <div *ngIf="this.parsedCache === null">
+      Parsing failed.
+    </div>
+    <div *ngIf="this.parsedCache === undefined">
+      Import something to start parsing.
+    </div>
+    <div *ngIf="this.parsedCache !== null && this.parsedCache !== undefined">
+      <code>
+        <div>found {{this.parsedCache.length}} kits</div>
+        <br>
+        Kits:
+        <div *ngFor="let kit of this.parsedCache">"{{kit.Name}}" Item Count: {{kit.Items.length}} Skill Count: {{kit.Skills.length}}</div>
+      </code>
+    </div>
+    <mat-divider></mat-divider>
+    <button mat-stroked-button color="accent" (click)="loadParsedResults()" mat-button>Import Results</button>
+</div>

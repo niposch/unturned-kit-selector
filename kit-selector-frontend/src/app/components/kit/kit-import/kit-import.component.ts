@@ -62,7 +62,7 @@ export class KitImportComponent implements OnInit {
   }
 
   async parseItems(items:any | string): Promise<Array<Item>> {
-    if(items == ""){
+    if(items == "" || items == undefined){
       return [];
     }
     let itemList = await this.itemService.getItems().toPromise();
@@ -89,7 +89,7 @@ export class KitImportComponent implements OnInit {
   }
 
   parseSkills(skills:any | string){
-    if(skills == ""){
+    if(skills == "" || skills == undefined){
       return [];
     }
     let parsedSkills = []

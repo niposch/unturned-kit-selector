@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1661082133492,
+  "timestamp": 1661094944800,
   "index": "/unturned-kit-selector/index.html",
   "assetGroups": [
     {
@@ -13,9 +13,9 @@
       "urls": [
         "/unturned-kit-selector/favicon.ico",
         "/unturned-kit-selector/index.html",
-        "/unturned-kit-selector/main.256189597961998d.js",
+        "/unturned-kit-selector/main.988b40a8419b648a.js",
         "/unturned-kit-selector/manifest.webmanifest",
-        "/unturned-kit-selector/polyfills.87cf65de55ab6b8d.js",
+        "/unturned-kit-selector/polyfills.0e3068fcf594121c.js",
         "/unturned-kit-selector/runtime.1c5ea9e34d35f2a5.js",
         "/unturned-kit-selector/styles.4d8ab23d7114cf8f.css"
       ],
@@ -3566,10 +3566,10 @@
     "/unturned-kit-selector/assets/item-imgs/99.png": "9c0fd71ada0b13e1dc1cfe18e38760610a416631",
     "/unturned-kit-selector/assets/items.json": "360b36c029b9a9b01649ec9189e88a0a60667b75",
     "/unturned-kit-selector/favicon.ico": "096f3928a7962aeb608f2a4381ee8bcf351a5141",
-    "/unturned-kit-selector/index.html": "ed10315a2d15bac9026b24718c4de0d6a4c09f9d",
-    "/unturned-kit-selector/main.256189597961998d.js": "2f2ab78347498b1e27742475aec9eddcd3cf5882",
+    "/unturned-kit-selector/index.html": "4af4b1c22f2ed612a42b248bbd4a0e2788540b5b",
+    "/unturned-kit-selector/main.988b40a8419b648a.js": "7c746529cc18239c481e520ca79711016d5bd719",
     "/unturned-kit-selector/manifest.webmanifest": "9c08d6fa5d3e95976b9a958a62c31c301503d767",
-    "/unturned-kit-selector/polyfills.87cf65de55ab6b8d.js": "0609a48f1a7e7a989a0d6321d5a35da3ad6d5c3e",
+    "/unturned-kit-selector/polyfills.0e3068fcf594121c.js": "3c2189b91855c19474e789a73ca4e807534c319c",
     "/unturned-kit-selector/runtime.1c5ea9e34d35f2a5.js": "6fc24307d56a2270811c871412e2518394ba1e13",
     "/unturned-kit-selector/styles.4d8ab23d7114cf8f.css": "5b5b104b8e84166470df5ef5591c88eb636ec761"
   },

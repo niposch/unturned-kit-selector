@@ -38,6 +38,21 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SkillListComponent } from './components/kit/skill-list/skill-list.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {config} from "rxjs";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+// fireship claims that exposing these credentials is ok => https://fireship.io/snippets/install-angularfire/
+const firebaseConfig = {
+  apiKey: "AIzaSyDQqCCEqORpE1nuYyJQSeXyUZjQ7SwAXY8",
+  authDomain: "kit-selector.firebaseapp.com",
+  projectId: "kit-selector",
+  storageBucket: "kit-selector.appspot.com",
+  messagingSenderId: "560671320027",
+  appId: "1:560671320027:web:3a064afc9c1118bf3129fe",
+  measurementId: "G-CL1J2Z9M0Y"
+};
 
 @NgModule({
   declarations: [
@@ -85,7 +100,11 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
       registrationStrategy: 'registerWhenStable:30000'
     }),
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule // storage
   ],
   providers: [],
   bootstrap: [AppComponent]

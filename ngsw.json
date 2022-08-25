@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1661094944800,
+  "timestamp": 1661424049722,
   "index": "/unturned-kit-selector/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/unturned-kit-selector/favicon.ico",
         "/unturned-kit-selector/index.html",
-        "/unturned-kit-selector/main.988b40a8419b648a.js",
+        "/unturned-kit-selector/main.df1b7f9c9ce97587.js",
         "/unturned-kit-selector/manifest.webmanifest",
         "/unturned-kit-selector/polyfills.0e3068fcf594121c.js",
         "/unturned-kit-selector/runtime.1c5ea9e34d35f2a5.js",
@@ -3566,8 +3566,8 @@
     "/unturned-kit-selector/assets/item-imgs/99.png": "9c0fd71ada0b13e1dc1cfe18e38760610a416631",
     "/unturned-kit-selector/assets/items.json": "360b36c029b9a9b01649ec9189e88a0a60667b75",
     "/unturned-kit-selector/favicon.ico": "096f3928a7962aeb608f2a4381ee8bcf351a5141",
-    "/unturned-kit-selector/index.html": "4af4b1c22f2ed612a42b248bbd4a0e2788540b5b",
-    "/unturned-kit-selector/main.988b40a8419b648a.js": "7c746529cc18239c481e520ca79711016d5bd719",
+    "/unturned-kit-selector/index.html": "7c417337128ec9e49bd54de4224006b293de60fb",
+    "/unturned-kit-selector/main.df1b7f9c9ce97587.js": "cfb793476bd7cc06e78678e319c63c42e9ac3571",
     "/unturned-kit-selector/manifest.webmanifest": "9c08d6fa5d3e95976b9a958a62c31c301503d767",
     "/unturned-kit-selector/polyfills.0e3068fcf594121c.js": "3c2189b91855c19474e789a73ca4e807534c319c",
     "/unturned-kit-selector/runtime.1c5ea9e34d35f2a5.js": "6fc24307d56a2270811c871412e2518394ba1e13",

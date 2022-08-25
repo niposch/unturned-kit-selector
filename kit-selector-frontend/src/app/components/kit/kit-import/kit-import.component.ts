@@ -7,6 +7,7 @@ import {ItemService} from "../../../services/item.service";
 import {KitLocalStorageService} from "../../../services/kit-local-storage.service";
 const { XMLParser, XMLBuilder, XMLValidator} = require("fast-xml-parser");
 import {v4 as uuidv4} from 'uuid';
+import {KitItem} from "../../../models/kits/KitItem";
 
 @Component({
   selector: 'app-kit-import',
@@ -61,7 +62,7 @@ export class KitImportComponent implements OnInit {
     this.parsedCache = kits;
   }
 
-  async parseItems(items:any | string): Promise<Array<Item>> {
+  async parseItems(items:any | string): Promise<Array<KitItem>> {
     if(items == "" || items == undefined){
       return [];
     }
@@ -78,7 +79,27 @@ export class KitImportComponent implements OnInit {
         if(foundItem == undefined){
           continue
         }
-        parsedItems.push(foundItem);
+        let kitItem:KitItem = {
+          item_id: foundItem.item_id,
+          name: foundItem.name,
+          type: foundItem.type,
+          weight: foundItem.weight,
+          additional_storage_horizontal: foundItem.additional_storage_horizontal,
+          additional_storage_vertical: foundItem.additional_storage_vertical,
+          vertical_slots: foundItem.vertical_slots,
+          horizontal_slots: foundItem.horizontal_slots,
+          rarity: foundItem.rarity,
+          description: foundItem.description,
+          thumbnail_url: foundItem.thumbnail_url,
+          amount: 1
+        }
+        try{
+          kitItem.amount = parseInt(item["@_amount"])
+        }
+        catch (e){
+          console.log(e)
+        }
+        parsedItems.push(kitItem);
       }
       catch (e) {
         console.log(e);

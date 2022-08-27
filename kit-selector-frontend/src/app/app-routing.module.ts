@@ -9,9 +9,13 @@ import {KitDetailsComponent} from "./components/kit/kit-details/kit-details.comp
 import {KitListComponent} from "./components/kit/kit-list/kit-list.component";
 import {KitExportComponent} from "./components/kit/kit-export/kit-export.component";
 import {KitImportComponent} from "./components/kit/kit-import/kit-import.component";
+import {LoginComponent} from "./components/auth/login/login.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: "auth", children:[
+      {path: "login", component: LoginComponent}
+    ]},
   {path:"details", component:ItemDetailsComponent},
   {path: "kit",children:[
       {path:"details/:id", component:KitDetailsComponent},

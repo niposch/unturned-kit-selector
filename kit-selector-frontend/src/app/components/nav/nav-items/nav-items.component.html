@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: row">
+<div style="display: flex; flex-direction: row; overflow: auto; width: available">
   <button style="margin-right: 10px" mat-stroked-button color="accent" mat-button routerLink="/">
     <span style="display: flex; flex-direction: row; align-items: center">
     <img src="assets/icons/icon-512x512.png" alt="logo" style="width: auto; max-height:30px; margin-right: 5px" class="logo">
@@ -8,6 +8,10 @@
     </span>
   </button>
   <button mat-button routerLink="/kit/list">Kit List</button>
+  <button mat-button routerLink="/kit/import">Import Kits</button>
+  <button mat-button routerLink="/kit/export">Export Kits</button>
   <button mat-button routerLink="/kit/create-update/{{Constants.EmptyGuid}}" mat-button>Create Kit</button>
-  <button disabled mat-button>Load Kit</button>
+  <span style="margin-left: auto"></span>
+  <button *ngIf="!loggedIn" mat-button routerLink="/auth/login" mat-button>Login</button>
+  <button *ngIf="loggedIn" mat-button routerLink="/auth/login" mat-button>Account</button>
 </div>

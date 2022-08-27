@@ -43,6 +43,8 @@ import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {config} from "rxjs";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { LoginComponent } from './components/auth/login/login.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 // fireship claims that exposing these credentials is ok => https://fireship.io/snippets/install-angularfire/
 const firebaseConfig = {
   apiKey: "AIzaSyDQqCCEqORpE1nuYyJQSeXyUZjQ7SwAXY8",
@@ -70,6 +72,7 @@ const firebaseConfig = {
     KitDetailsComponent,
     KitItemSelectComponent,
     SkillListComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,7 +107,9 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule,
+    MatProgressSpinnerModule,
+    // storage
   ],
   providers: [],
   bootstrap: [AppComponent]

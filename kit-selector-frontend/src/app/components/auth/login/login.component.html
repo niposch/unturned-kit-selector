@@ -1,0 +1,19 @@
+<mat-toolbar>
+  <app-nav-items></app-nav-items>
+</mat-toolbar>
+<div *ngIf="userProfile != null else showLogin">
+  <h1>Hello {{ this.userProfile.UserName }}!</h1>
+  <form>
+    <mat-form-field *ngIf="this.userProfile != null">
+      <mat-label>User Name (public)</mat-label>
+      <input matInput name="userNameInp" [(ngModel)]="this.userProfile.UserName">
+    </mat-form-field>
+    <mat-spinner *ngIf="this.userProfile == null"></mat-spinner>
+    <button mat-raised-button color="accent" (click)="updateProfile()">Update Profile</button>
+  </form>
+  <button mat-stroked-button (click)="logout()">Logout</button>
+</div>
+<ng-template #showLogin>
+  <p>Please login.</p>
+  <button mat-stroked-button (click)="login()">Login with Google</button>
+</ng-template>

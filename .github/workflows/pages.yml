@@ -28,7 +28,7 @@ jobs:
         run: |
           cd kit-selector-frontend
           npm i
-          npm run build -- --base-href="/unturned-kit-selector/"
+          npm run build -- --base-href="/"
           cp dist/kit-selector-frontend/index.html dist/kit-selector-frontend/404.html
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
